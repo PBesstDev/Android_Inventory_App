@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Bessmertnyy_3-2_Assignment</string>
+
+    <!-- LogIn Screen -->
+    <string name="login_msg_welcome">Invent\'R\'ies</string>
+    <string name="login_form_username">Username</string>
+    <string name="login_form_password">Password</string>
+    <string name="login_btn_create_new">Don\'t have an account? \nCreate a new login</string>
+    <string name="login_create_btn_login">Login</string>
+
+    <!-- MainView Screen -->
+    <string name="mainview_mainText">Inventory Dashboard</string>
+    <string name="mainview_btn_usr_profile">User Profile</string>
+    <string name="mainview_btn_inventory_view">View Inventories</string>
+    <string name="mainview_btn_inventory_new">Create New Inventory</string>
+
+    <!-- AddItem Screen -->
+    <string name="additem_add_item">Add Item</string>
+    <string name="additem_item_name">Item Name (e.g., Widget A)</string>
+    <string name="additem_item_qty">Quantity</string>
+    <string name="additem_item_loc">Location (e.g., Warehouse 1)</string>
+    <string name="additem_btn_save">Save</string>
+    <string name="additem_btn_cancel">Cancel</string>
+
+
+    <!-- DataView Screen -->
+    <string name="inventory_title_item">Item Name</string>
+    <string name="inventory_title_qty">Qty</string>
+    <string name="inventory_title_loc">Location</string>
+
+    <!-- SMS Screen -->
+    <string name="sms_section_title">SMS Alert</string>
+    <string name="sms_phone_hint">Phone number</string>
+    <string name="sms_send_button">Send SMS</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for adding a new item to an inventory -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!-- Header title for the screen -->
+    <TextView
+        android:id="@+id/tvAddHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/additem_add_item"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Input for the item name -->
+    <EditText
+        android:id="@+id/etItemName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/additem_item_name"
+        android:inputType="textCapWords"
+        android:layout_marginTop="32dp"
+        android:nextFocusDown="@id/etQuantity"
+        app:layout_constraintTop_toBottomOf="@id/tvAddHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Input for the item quantity - strictly numeric -->
+    <EditText
+        android:id="@+id/etQuantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/additem_item_qty"
+        android:inputType="number"
+        android:layout_marginTop="16dp"
+        android:nextFocusDown="@id/etLocation"
+        app:layout_constraintTop_toBottomOf="@id/etItemName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Input for the item storage location -->
+    <EditText
+        android:id="@+id/etLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/additem_item_loc"
+        android:inputType="textCapWords"
+        android:layout_marginTop="16dp"
+        android:nextFocusDown="@id/btnSaveItem"
+        app:layout_constraintTop_toBottomOf="@id/etQuantity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Button to save the new item to the database -->
+    <Button
+        android:id="@+id/btnSaveItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/additem_btn_save"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/etLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Button to cancel the operation and go back -->
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/additem_btn_cancel"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnSaveItem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
