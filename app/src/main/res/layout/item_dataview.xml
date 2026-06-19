@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Layout for a single row in the inventory data list -->
+
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="16dp"
-    android:gravity="center_vertical">
+    android:layout_margin="8dp"
+    android:background="@android:color/white"
+    android:elevation="2dp"
+    android:orientation="vertical"
+    android:padding="12dp">
 
-    <!-- Displays the name of the inventory item -->
+    
     <TextView
         android:id="@+id/tvItemName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:text="Widget"
-        android:textColor="#000000" />
+        android:textStyle="bold" />
 
-    <!-- Displays the current quantity of the item -->
+    
     <TextView
         android:id="@+id/tvQuantity"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="50"
-        android:textAlignment="center" />
+        android:layout_marginTop="4dp" />
 
-    <!-- Displays the physical location of the item -->
+    
     <TextView
         android:id="@+id/tvLocation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.5"
-        android:text="Aisle 4" />
+        android:layout_marginTop="4dp" />
 
-    <!-- Button to delete this specific item from the list and database -->
-    <ImageButton
-        android:id="@+id/btnDeleteRow"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@android:drawable/ic_menu_delete"
-        android:contentDescription="Delete Row" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        
+        <ImageButton
+            android:id="@+id/btnEditRow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/edit_item"
+            android:src="@android:drawable/ic_menu_edit" />
+
+        
+        <ImageButton
+            android:id="@+id/btnDeleteRow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete_item"
+            android:src="@android:drawable/ic_menu_delete" />
+    </LinearLayout>
+
 </LinearLayout>

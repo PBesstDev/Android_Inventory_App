@@ -9,61 +9,76 @@ import java.util.List;
 
 
 
-// Managing and displaying inventory items in a RecyclerView.
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.InventoryViewHolder> {
 
     private List<InventoryItem> itemList;
+    private final OnItemEditListener editListener;
     private final OnItemDeleteListener deleteListener;
 
+    public interface OnItemEditListener {
+        void onEdit(InventoryItem item);
+    }
 
-    //Interface to handle delete button clicks.
     public interface OnItemDeleteListener {
         void onDelete(InventoryItem item);
     }
 
-    public InventoryAdapter(List<InventoryItem> itemList, OnItemDeleteListener deleteListener) {
+    public InventoryAdapter(
+            List<InventoryItem> itemList,
+            OnItemEditListener editListener,
+            OnItemDeleteListener deleteListener
+    ) {
         this.itemList = itemList;
+        this.editListener = editListener;
         this.deleteListener = deleteListener;
     }
 
     @Override
-    //Inflates row layout (item_dataview.xml) and creates ViewHolder.
     public InventoryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dataview, parent, false);
         return new InventoryViewHolder(view);
     }
 
     @Override
-    //Binds specific data from inventory list to UI elements in row.
     public void onBindViewHolder(InventoryViewHolder holder, int position) {
         InventoryItem currentItem = itemList.get(position);
-        
-        // Populate text fields
+
         holder.tvName.setText(currentItem.getName());
         holder.tvQty.setText(currentItem.getQuantity());
         holder.tvLocation.setText(currentItem.getLocation());
-        
-        // Setup listener for the delete button in this row
-        holder.btnDeleteRow.setOnClickListener(v -> deleteListener.onDelete(currentItem));
+
+        holder.btnEditRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editListener.onEdit(currentItem);
+            }
+        });
+
+        holder.btnDeleteRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteListener.onDelete(currentItem);
+            }
+        });
     }
 
     @Override
-    //Returns total num of items to be displayed.
     public int getItemCount() {
         return itemList.size();
     }
 
-    //Grouping all UI components for each row
     static class InventoryViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvQty, tvLocation;
-        View btnDeleteRow;
+        View btnEditRow, btnDeleteRow;
 
         public InventoryViewHolder(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvItemName);
             tvQty = itemView.findViewById(R.id.tvQuantity);
             tvLocation = itemView.findViewById(R.id.tvLocation);
+            btnEditRow = itemView.findViewById(R.id.btnEditRow);
             btnDeleteRow = itemView.findViewById(R.id.btnDeleteRow);
         }
     }
 }
+

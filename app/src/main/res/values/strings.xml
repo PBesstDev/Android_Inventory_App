@@ -1,20 +1,58 @@
 <resources>
     <string name="app_name">Bessmertnyy_3-2_Assignment</string>
 
-    <!-- LogIn Screen -->
+    
     <string name="login_msg_welcome">Invent\'R\'ies</string>
     <string name="login_form_username">Username</string>
     <string name="login_form_password">Password</string>
     <string name="login_btn_create_new">Don\'t have an account? \nCreate a new login</string>
-    <string name="login_create_btn_login">Login</string>
+    <string name="login_btn_login">Login</string>
 
-    <!-- MainView Screen -->
-    <string name="mainview_mainText">Inventory Dashboard</string>
-    <string name="mainview_btn_usr_profile">User Profile</string>
+    
+    <string name="create_msg_welcome">Create New Account</string>
+    <string name="create_form_first_name">First Name</string>
+    <string name="create_form_last_name">Last Name</string>
+    <string name="create_btn_signup">Create Account</string>
+    <string name="create_btn_back_login">Already have an account? Log in</string>
+
+    
+    <string name="mainview_title">Inventory Dashboard</string>
+    <string name="mainview_btn_user_profile">User Profile</string>
     <string name="mainview_btn_inventory_view">View Inventories</string>
-    <string name="mainview_btn_inventory_new">Create New Inventory</string>
 
-    <!-- AddItem Screen -->
+    
+    <string name="inventoryview_title">Available Inventories</string>
+    <string name="inventoryview_fab_create_desc">Create New Inventory</string>
+    <string name="inventoryview_create_title">Create New Inventory</string>
+    <string name="inventoryview_create_name_hint">Inventory Name</string>
+    <string name="inventoryview_btn_continue">Continue</string>
+    <string name="inventoryview_error_name_required">Enter an inventory name.</string>
+    <string name="inventoryview_error_exists">That inventory already exists.</string>
+    <string name="inventoryview_msg_add_first_item">Add an item to finalize creating this inventory.</string>
+
+    
+    <string name="profile_title">User Profile</string>
+    <string name="profile_first_name_label">First Name</string>
+    <string name="profile_last_name_label">Last Name</string>
+    <string name="profile_username_label">Username</string>
+    <string name="profile_value_placeholder">-</string>
+    <string name="profile_value_unavailable">Unavailable</string>
+    <string name="profile_return_button">Return</string>
+    <string name="profile_btn_logout">Log Out</string>
+    <string name="profile_sms_section_title">SMS Alert</string>
+    <string name="profile_sms_btn_send">Enable SMS Alerts</string>
+    <string name="profile_sms_phone_title">Set SMS Alert Number</string>
+    <string name="profile_sms_phone_message">Enter the phone number for low-inventory text alerts.</string>
+    <string name="profile_sms_phone_hint">Phone Number</string>
+    <string name="profile_sms_save_and_enable">Save and Continue</string>
+    <string name="profile_sms_phone_required">Enter a phone number to enable SMS alerts.</string>
+    <string name="profile_sms_phone_invalid">Enter a valid phone number (10-15 digits).</string>
+    <string name="profile_sms_phone_save_failed">Unable to save phone number for this user profile.</string>
+    <string name="profile_sms_permission_enabled">SMS permission granted. Alerts are enabled.</string>
+    <string name="profile_sms_permission_already_granted">SMS permission is already enabled.</string>
+    <string name="profile_sms_permission_denied">SMS permission denied. App still works without SMS.</string>
+
+    
     <string name="additem_add_item">Add Item</string>
     <string name="additem_item_name">Item Name (e.g., Widget A)</string>
     <string name="additem_item_qty">Quantity</string>
@@ -23,13 +61,13 @@
     <string name="additem_btn_cancel">Cancel</string>
 
 
-    <!-- DataView Screen -->
-    <string name="inventory_title_item">Item Name</string>
-    <string name="inventory_title_qty">Qty</string>
-    <string name="inventory_title_loc">Location</string>
-
-    <!-- SMS Screen -->
-    <string name="sms_section_title">SMS Alert</string>
-    <string name="sms_phone_hint">Phone number</string>
-    <string name="sms_send_button">Send SMS</string>
+    
+    <string name="edit_item">Edit Item</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="edit_item_title">Edit Item</string>
+    <string name="edit_save">Save Changes</string>
+    <string name="item_deleted">Item deleted.</string>
+    <string name="item_updated">Item updated.</string>
+    <string name="item_not_updated">Item could not be updated.</string>
+    <string name="fill_all_item_fields">Please fill in all item fields.</string>
 </resources>

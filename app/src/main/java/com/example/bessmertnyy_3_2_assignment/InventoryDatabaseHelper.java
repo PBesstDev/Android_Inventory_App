@@ -9,9 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-//SQLite helper for managing inventory items across different inventory lists.
-//Kind of rudimentary, not sure what all should be in the table headers.
-//TODO: make table headers customizable as needed
 public class InventoryDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "inventory.db";
@@ -19,7 +16,6 @@ public class InventoryDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String EXAMPLE_INVENTORY_NAME = "Example Inventory";
 
-    // Table and column definitions
     private static final String TABLE_INVENTORY = "inventory";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_INVENTORY_NAME = "inventory_name";
@@ -32,7 +28,6 @@ public class InventoryDatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    //Create basic table, fill it with default data
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_INVENTORY + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -45,13 +40,11 @@ public class InventoryDatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    //schema updated via recreating the table. Is there an easier way?
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_INVENTORY);
         onCreate(db);
     }
 
-    //Add item to database
     public boolean addItem(String inventoryName, String name, String quantity, String location) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -63,14 +56,24 @@ public class InventoryDatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    //Delete item from database
     public boolean deleteItem(int id) {
         SQLiteDatabase db = getWritableDatabase();
         int rows = db.delete(TABLE_INVENTORY, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
         return rows > 0;
     }
 
-    //retrieving all tems from specific database
+    public boolean updateItem(int id, String inventoryName, String name, String quantity, String location) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_INVENTORY_NAME, inventoryName);
+        values.put(COLUMN_NAME, name);
+        values.put(COLUMN_QUANTITY, quantity);
+        values.put(COLUMN_LOCATION, location);
+
+        int rows = db.update(TABLE_INVENTORY, values, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
+        return rows > 0;
+    }
+
     public List<InventoryItem> getAllItems(String inventoryName) {
         List<InventoryItem> items = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -93,7 +96,6 @@ public class InventoryDatabaseHelper extends SQLiteOpenHelper {
         return items;
     }
 
-    //Get the names of all databases for indexing/searching
     public List<String> getInventoryNames() {
         List<String> names = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -111,7 +113,6 @@ public class InventoryDatabaseHelper extends SQLiteOpenHelper {
         return names;
     }
 
-    //Check if Example Inventory exists; create one if it's missing
     public void ensureExampleInventoryExists() {
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery(
@@ -129,36 +130,34 @@ public class InventoryDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    //populate example inventory with example data
     private void seedExampleInventory(SQLiteDatabase db) {
         insertSeedItem(db, EXAMPLE_INVENTORY_NAME, 
             "Doodad", 
-            "5ea", 
+            "50", 
             "WHSE 1 12E25"
         );
         insertSeedItem(db, EXAMPLE_INVENTORY_NAME, 
             "Thiggamajig", 
-            "3bx", 
+            "30", 
             "WHSE 2 17A"
         );
         insertSeedItem(db, EXAMPLE_INVENTORY_NAME, 
             "Doohickey", 
-            "110ea", 
+            "110", 
             "WHSE 1 01Z91"
         );
         insertSeedItem(db, EXAMPLE_INVENTORY_NAME, 
             "Gizmo", 
-            "4pal", 
+            "40", 
             "WHSE 3 99X99"
         );
         insertSeedItem(db, EXAMPLE_INVENTORY_NAME, 
             "Thingummy", 
-            "99can", 
+            "99", 
             "WHSE 1 12E22"
         );
     }
 
-    //Insert data into database
     private void insertSeedItem(SQLiteDatabase db, String inventoryName, String name, String quantity, String location) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_INVENTORY_NAME, inventoryName);

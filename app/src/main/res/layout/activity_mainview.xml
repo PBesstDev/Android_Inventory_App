@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Main Dashboard Layout providing access to all major app functions -->
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,32 +9,33 @@
     android:padding="24dp"
     tools:context=".MainViewActivity">
 
-    <!-- Screen Title -->
+    
+    
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="@string/mainview_mainText"
+        android:text="@string/mainview_title"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Button to navigate to User Profile (Placeholder) -->
+    
     <Button
         android:id="@+id/btn_user_profile"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="48dp"
-        android:text="@string/mainview_btn_usr_profile"
+        android:text="@string/mainview_btn_user_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
         app:layout_constraintWidth_percent="0.8" />
 
-    <!-- Button to navigate to the list of existing inventories -->
+    
     <Button
         android:id="@+id/btn_existing_inventories"
         android:layout_width="0dp"
@@ -45,49 +46,6 @@
         app:layout_constraintStart_toStartOf="@+id/btn_user_profile"
         app:layout_constraintTop_toBottomOf="@+id/btn_user_profile" />
 
-    <!-- Button to create a new inventory container (Placeholder) -->
-    <Button
-        android:id="@+id/btn_create_inventory"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/mainview_btn_inventory_new"
-        app:layout_constraintEnd_toEndOf="@+id/btn_existing_inventories"
-        app:layout_constraintStart_toStartOf="@+id/btn_existing_inventories"
-        app:layout_constraintTop_toBottomOf="@+id/btn_existing_inventories" />
-
-    <!-- SMS Alert Configuration Section Header -->
-    <TextView
-        android:id="@+id/tv_sms_section"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="SMS Alert"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_create_inventory" />
-
-    <!-- Input for the phone number used for low-inventory alerts -->
-    <EditText
-        android:id="@+id/etSmsNumber"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Phone number"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_sms_section" />
-
-    <!-- Button to save phone number and request SMS permissions -->
-    <Button
-        android:id="@+id/btnSendSms"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Send SMS"
-        app:layout_constraintEnd_toEndOf="@+id/btn_create_inventory"
-        app:layout_constraintStart_toStartOf="@+id/btn_create_inventory"
-        app:layout_constraintTop_toBottomOf="@+id/etSmsNumber" />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
