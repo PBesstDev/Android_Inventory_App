@@ -195,13 +195,25 @@ public class DataViewActivity extends AppCompatActivity {
                             smsManager = android.telephony.SmsManager.getDefault();
                         }
 
-                        smsManager.sendTextMessage(
-                                phoneNumber,
-                                null,
-                                "Low inventory alert: " + name + " is down to " + qty,
-                                null,
-                                null
-                        );
+                        //Having problems with seeing emulator message. Try-catching to see if it is erroring out instead.
+                        try {
+                            smsManager.sendTextMessage(
+                                    phoneNumber,
+                                    null,
+                                    "Low inventory alert: " + name + " is down to " + qty,
+                                    null,
+                                    null
+                            );
+
+                            Toast.makeText(this,
+                                    "Low inventory SMS sent",
+                                    Toast.LENGTH_SHORT).show();
+
+                        } catch (Exception e) {
+                            Toast.makeText(this,
+                                    "SMS failed: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
             }
