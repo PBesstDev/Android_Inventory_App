@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Add item screen with name/qty/location fields. -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +8,7 @@
     android:layout_height="match_parent"
     android:padding="24dp">
 
-    
+    <!-- Header text for add item page -->
     <TextView
         android:id="@+id/tvAddHeader"
         android:layout_width="wrap_content"
@@ -19,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    
+    <!-- Item name input -->
     <EditText
         android:id="@+id/etItemName"
         android:layout_width="0dp"
@@ -32,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    
+    <!-- Quantity input (numbers only) -->
     <EditText
         android:id="@+id/etQuantity"
         android:layout_width="0dp"
@@ -45,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    
+    <!-- Storage location input -->
     <EditText
         android:id="@+id/etLocation"
         android:layout_width="0dp"
@@ -58,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    
+    <!-- Save button writes item to DB -->
     <Button
         android:id="@+id/btnSaveItem"
         android:layout_width="0dp"
@@ -69,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    
+    <!-- Cancel button returns without saving -->
     <Button
         android:id="@+id/btnCancel"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"

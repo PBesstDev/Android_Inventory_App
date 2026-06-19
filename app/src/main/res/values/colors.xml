@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- material template colors -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -8,6 +9,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- project palette colors used by custom theme -->
     <color name="calm_blue_primary">#4A90E2</color>
     <color name="calm_blue_light">#D9E6F5</color>
     <color name="slate_dark">#2C3E50</color>

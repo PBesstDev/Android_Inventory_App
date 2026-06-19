@@ -1,26 +1,27 @@
 <resources>
+    <!-- assignment title -->
     <string name="app_name">Bessmertnyy_3-2_Assignment</string>
 
-    
+    <!-- login screen -->
     <string name="login_msg_welcome">Invent\'R\'ies</string>
     <string name="login_form_username">Username</string>
     <string name="login_form_password">Password</string>
     <string name="login_btn_create_new">Don\'t have an account? \nCreate a new login</string>
     <string name="login_btn_login">Login</string>
 
-    
+    <!-- create user screen -->
     <string name="create_msg_welcome">Create New Account</string>
     <string name="create_form_first_name">First Name</string>
     <string name="create_form_last_name">Last Name</string>
     <string name="create_btn_signup">Create Account</string>
     <string name="create_btn_back_login">Already have an account? Log in</string>
 
-    
+    <!-- main dashboard -->
     <string name="mainview_title">Inventory Dashboard</string>
     <string name="mainview_btn_user_profile">User Profile</string>
     <string name="mainview_btn_inventory_view">View Inventories</string>
 
-    
+    <!-- inventory dashboard -->
     <string name="inventoryview_title">Available Inventories</string>
     <string name="inventoryview_fab_create_desc">Create New Inventory</string>
     <string name="inventoryview_create_title">Create New Inventory</string>
@@ -30,7 +31,7 @@
     <string name="inventoryview_error_exists">That inventory already exists.</string>
     <string name="inventoryview_msg_add_first_item">Add an item to finalize creating this inventory.</string>
 
-    
+    <!-- profile screen -->
     <string name="profile_title">User Profile</string>
     <string name="profile_first_name_label">First Name</string>
     <string name="profile_last_name_label">Last Name</string>
@@ -52,7 +53,7 @@
     <string name="profile_sms_permission_already_granted">SMS permission is already enabled.</string>
     <string name="profile_sms_permission_denied">SMS permission denied. App still works without SMS.</string>
 
-    
+    <!-- inventory screen -->
     <string name="additem_add_item">Add Item</string>
     <string name="additem_item_name">Item Name (e.g., Widget A)</string>
     <string name="additem_item_qty">Quantity</string>
@@ -61,7 +62,7 @@
     <string name="additem_btn_cancel">Cancel</string>
 
 
-    
+    <!-- edit item screen -->
     <string name="edit_item">Edit Item</string>
     <string name="delete_item">Delete Item</string>
     <string name="edit_item_title">Edit Item</string>

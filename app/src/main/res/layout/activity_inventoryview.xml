@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Inventory list screen with title, list, and add button. -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +8,7 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    
+    <!-- Header text for inventory list page -->
     <TextView
         android:id="@+id/tvInventoryHeader"
         android:layout_width="0dp"
@@ -19,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    
+    <!-- ListView displaying inventory names from DB -->
     <ListView
         android:id="@+id/listViewInventories"
         android:layout_width="0dp"
@@ -32,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvInventoryHeader" />
 
-    
+    <!-- Floating action button to create a new inventory -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCreateInventory"
         android:layout_width="wrap_content"

@@ -17,12 +17,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+//Profile screen showing user info, logout, and SMS alert setup.
 public class UserProfileActivity extends AppCompatActivity {
 
+    //Request code used when asking Android for SEND_SMS permission.
     private static final int REQUEST_SMS_PERMISSION = 1001;
+    //DB helper for reading/updating user profile fields.
     private UserDatabaseHelper userDatabaseHelper;
+    //Username for currently active account.
     private String activeUsername;
+    //Dialog object used to collect phone number.
     private AlertDialog phoneDialog;
+    //Textbox in dialog where phone number is typed.
     private EditText phoneInput;
 
     @Override
@@ -78,6 +84,7 @@ public class UserProfileActivity extends AppCompatActivity {
         });
     }
 
+    //Open dialog so user can enter/update SMS phone number.
     private void showPhoneNumberDialog() {
         phoneInput = new EditText(this);
         phoneInput.setInputType(InputType.TYPE_CLASS_PHONE);
@@ -116,6 +123,7 @@ public class UserProfileActivity extends AppCompatActivity {
         phoneDialog.show();
     }
 
+    //Validate number, save it, then ask for SMS permission if needed.
     private void handlePhoneSaveAndPermission() {
         String phoneNumber = phoneInput.getText().toString().trim();
 
@@ -145,6 +153,7 @@ public class UserProfileActivity extends AppCompatActivity {
         }
     }
 
+    //Basic phone check: allow common symbols and require 10-15 digits.
     private boolean isValidPhoneNumber(String phoneNumber) {
         int digitCount = 0;
 
@@ -161,6 +170,7 @@ public class UserProfileActivity extends AppCompatActivity {
         return digitCount >= 10 && digitCount <= 15;
     }
 
+    //Save phone number to active user profile + legacy preference.
     private boolean savePhoneNumberForUser(String phoneNumber) {
         if (activeUsername == null || activeUsername.trim().isEmpty()) {
             return false;
@@ -177,6 +187,7 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     @Override
+    //Handle user response from SMS permission request dialog.
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_SMS_PERMISSION) {
@@ -188,6 +199,7 @@ public class UserProfileActivity extends AppCompatActivity {
         }
     }
 
+    //Clear login session and send user back to login screen.
     private void logoutUser() {
         getSharedPreferences("AppPrefs", MODE_PRIVATE)
                 .edit()

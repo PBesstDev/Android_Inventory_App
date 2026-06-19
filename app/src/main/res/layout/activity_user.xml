@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Profile screen showing user details + account actions. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +9,7 @@
     android:padding="24dp"
     tools:context=".UserProfileActivity">
 
-    
+    <!-- Main profile header text -->
     <TextView
         android:id="@+id/tvProfileTitle"
         android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    
+    <!-- First name label + value fields -->
     <TextView
         android:id="@+id/tvFirstNameLabel"
         android:layout_width="0dp"
@@ -32,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvProfileTitle" />
-
+    <!-- Last name label + value fields -->
     <TextView
         android:id="@+id/tvFirstNameValue"
         android:layout_width="0dp"
@@ -43,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvFirstNameLabel" />
 
-    
+    <!-- Username label + value fields -->
     <TextView
         android:id="@+id/tvLastNameLabel"
         android:layout_width="0dp"
@@ -87,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUsernameLabel" />
 
-    
+    <!-- Button to set SMS alert permission/number -->
     <Button
         android:id="@+id/btnSendSms"
         android:layout_width="0dp"
@@ -99,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvUsernameValue"
         app:layout_constraintWidth_percent="0.8" />
 
-    
+    <!-- Button to return to previous screen -->
     <Button
         android:id="@+id/btnReturn"
         android:layout_width="0dp"
@@ -111,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnSendSms"
         app:layout_constraintWidth_percent="0.8" />
 
-    
+    <!-- Button to log out current user session -->
     <Button
         android:id="@+id/btnLogout"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"

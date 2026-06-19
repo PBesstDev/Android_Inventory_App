@@ -17,9 +17,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
+//Screen that lists inventories and lets user create a new one.
 public class InventoryViewActivity extends AppCompatActivity {
 
+    //Inventory DB helper for read/write operations.
     private InventoryDatabaseHelper myInventoryDatabase;
+    //List widget showing inventory names.
     private ListView listViewInventories;
 
     @Override
@@ -54,17 +57,20 @@ public class InventoryViewActivity extends AppCompatActivity {
     }
 
     @Override
+    //Refresh list each time user returns to this screen.
     protected void onResume() {
         super.onResume();
         loadInventoryNames();
     }
 
+    //Load inventory names from DB into ListView adapter.
     private void loadInventoryNames() {
         List<String> inventoryNames = myInventoryDatabase.getInventoryNames();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, inventoryNames);
         listViewInventories.setAdapter(adapter);
     }
 
+    //Show dialog where user types new inventory name.
     private void promptCreateInventory() {
         EditText etInventoryName = new EditText(this);
         etInventoryName.setHint(R.string.inventoryview_create_name_hint);
@@ -82,6 +88,7 @@ public class InventoryViewActivity extends AppCompatActivity {
                 .show();
     }
 
+    //Validate name, then open AddItemActivity for this new inventory.
     private void continueCreateInventory(EditText etInventoryName) {
         String inventoryName = etInventoryName.getText().toString().trim();
 
@@ -101,6 +108,7 @@ public class InventoryViewActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.inventoryview_msg_add_first_item, Toast.LENGTH_SHORT).show();
     }
 
+    //Check for duplicate inventory names (case-insensitive).
     private boolean inventoryExists(String inventoryName) {
         List<String> inventoryNames = myInventoryDatabase.getInventoryNames();
         for (String existingName : inventoryNames) {

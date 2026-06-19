@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- app manifest - permissions, features, activities -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- app can run with or without telephony -->
     <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
+    <!-- needed for low-inventory SMS alerts (runtime approval required) -->
     <uses-permission android:name="android.permission.SEND_SMS" />
 
+    <!-- global app settings and activity registrations -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bessmertnyy_32_Assignment">
 
+        <!-- login is launcher activity shown on startup -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -25,31 +30,37 @@
             </intent-filter>
         </activity>
 
+        <!-- account creation screen -->
         <activity
             android:name=".UserCreateActivity"
             android:label="Create Account"
             android:exported="false" />
 
+        <!-- main dashboard screen -->
         <activity
             android:name=".MainViewActivity"
             android:label="Main Dashboard"
             android:exported="false" />
 
+        <!-- user profile + SMS settings screen -->
         <activity
             android:name=".UserProfileActivity"
             android:label="User Profile"
             android:exported="false" />
 
+        <!-- inventory item list/details screen -->
         <activity
             android:name=".DataViewActivity"
             android:label="View Inventory"
             android:exported="false" />
 
+        <!-- inventory names list screen -->
         <activity
             android:name=".InventoryViewActivity"
             android:label="Inventory List"
             android:exported="false" />
 
+        <!-- add item form screen -->
         <activity
             android:name=".AddItemActivity"
             android:label="Add Item"

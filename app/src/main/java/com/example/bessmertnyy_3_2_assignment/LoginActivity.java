@@ -12,10 +12,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+//Login screen that authenticates users with local SQLite data.
 public class LoginActivity extends AppCompatActivity {
 
+    //Username + password input fields.
     private EditText myUsername;
     private EditText myPassword;
+    //Helper for user account DB queries.
     private UserDatabaseHelper userDatabaseHelper;
 
     @Override
@@ -45,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //Validates credentials and opens dashboard on success.
     private void performLogin() {
         String inputUsername = myUsername.getText().toString().trim();
         String inputPassword = myPassword.getText().toString().trim();

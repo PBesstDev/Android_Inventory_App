@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//Small dashboard screen that routes user to profile or inventories.
 public class MainViewActivity extends AppCompatActivity {
 
     @Override
@@ -14,9 +15,11 @@ public class MainViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainview);
 
+        //Main menu buttons.
         Button btnUserProfile = findViewById(R.id.btn_user_profile);
         Button btnExistingInventories = findViewById(R.id.btn_existing_inventories);
 
+        //Open profile and pass active username.
         btnUserProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,6 +32,7 @@ public class MainViewActivity extends AppCompatActivity {
             }
         });
 
+        //Open inventory list screen.
         btnExistingInventories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

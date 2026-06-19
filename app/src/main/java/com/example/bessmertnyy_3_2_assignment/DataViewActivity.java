@@ -17,15 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+//Shows all items in one inventory, with add/edit/delete options.
 public class DataViewActivity extends AppCompatActivity {
 
+    //Default phone number. Currently set up for Android emulator testing.
     private static final String DEFAULT_SMS_ALERT_NUMBER = "5554";
 
+    // Main UI components.
     private RecyclerView recyclerView;
     private FloatingActionButton fabAddData;
     private InventoryAdapter adapter;
     private List<InventoryItem> inventoryList;
 
+    // DB helper + selected inventory name currently being viewed.
     private InventoryDatabaseHelper inventoryDatabaseHelper;
     private String selectedInventoryName;
 
@@ -75,12 +79,14 @@ public class DataViewActivity extends AppCompatActivity {
         refreshInventory();
     }
 
+    //Open Add Item screen for this same inventory.
     private void openAddItemScreen() {
         Intent intent = new Intent(DataViewActivity.this, AddItemActivity.class);
         intent.putExtra("inventory_name", selectedInventoryName);
         startActivity(intent);
     }
 
+    //Delete one item, then refresh list + show feedback.
     private void deleteInventoryItem(InventoryItem item) {
         boolean deleted = inventoryDatabaseHelper.deleteItem(item.getId());
         if (deleted) {
@@ -95,12 +101,14 @@ public class DataViewActivity extends AppCompatActivity {
         refreshInventory();
     }
 
+    //Reload all rows from DB into RecyclerView list.
     private void refreshInventory() {
         inventoryList.clear();
         inventoryList.addAll(inventoryDatabaseHelper.getAllItems(selectedInventoryName));
         adapter.notifyDataSetChanged();
     }
 
+    //Build + show edit dialog for an existing item.
     private void showEditDialog(InventoryItem item) {
         LinearLayout container = new LinearLayout(this);
         container.setOrientation(LinearLayout.VERTICAL);
@@ -137,6 +145,7 @@ public class DataViewActivity extends AppCompatActivity {
                 .show();
     }
 
+    //Reads edit dialog values, validates, then saves item.
     private void saveEditedItem(InventoryItem item, EditText etName, EditText etQuantity, EditText etLocation) {
         String name = etName.getText().toString().trim();
         String quantity = etQuantity.getText().toString().trim();
@@ -164,6 +173,7 @@ public class DataViewActivity extends AppCompatActivity {
         }
     }
 
+    //Sends low inventory SMS if quantity is below threshold.
     private void checkLowInventory(String name, String quantityText) {
         try {
             int qty = Integer.parseInt(quantityText);
@@ -195,7 +205,7 @@ public class DataViewActivity extends AppCompatActivity {
                             smsManager = android.telephony.SmsManager.getDefault();
                         }
 
-                        //Having problems with seeing emulator message. Try-catching to see if it is erroring out instead.
+                        //Having problems seeing emulator message. try/catch here to see if it errors instead.
                         try {
                             smsManager.sendTextMessage(
                                     phoneNumber,

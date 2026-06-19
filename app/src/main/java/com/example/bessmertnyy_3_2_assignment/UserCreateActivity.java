@@ -9,13 +9,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//Account creation screen for new users.
 public class UserCreateActivity extends AppCompatActivity {
 
+    //Form input fields for user profile + login data.
     private EditText etFirstName;
     private EditText etLastName;
     private EditText etUsername;
     private EditText etPassword;
 
+    //DB helper for saving new users.
     private UserDatabaseHelper userDatabaseHelper;
 
     @Override
@@ -47,6 +50,7 @@ public class UserCreateActivity extends AppCompatActivity {
         });
     }
 
+    //Read form values, validate, create account, then enter app.
     private void createAccount() {
         String firstName = etFirstName.getText().toString().trim();
         String lastName = etLastName.getText().toString().trim();

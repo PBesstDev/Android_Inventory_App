@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Single row/card layout used by RecyclerView for one item. -->
+
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,27 +13,28 @@
     android:orientation="vertical"
     android:padding="12dp">
 
-    
+    <!-- Shows item name -->
     <TextView
         android:id="@+id/tvItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold" />
 
-    
+    <!-- Shows current quantity text -->
     <TextView
         android:id="@+id/tvQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp" />
 
-    
+    <!-- Shows item location text -->
     <TextView
         android:id="@+id/tvLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp" />
 
+    <!-- Row action area with edit + delete buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +42,7 @@
         android:gravity="end"
         android:orientation="horizontal">
 
-        
+        <!-- Edit icon button opens item edit dialog -->
         <ImageButton
             android:id="@+id/btnEditRow"
             android:layout_width="40dp"
@@ -48,7 +51,7 @@
             android:contentDescription="@string/edit_item"
             android:src="@android:drawable/ic_menu_edit" />
 
-        
+        <!-- Delete icon button removes this item row -->
         <ImageButton
             android:id="@+id/btnDeleteRow"
             android:layout_width="40dp"

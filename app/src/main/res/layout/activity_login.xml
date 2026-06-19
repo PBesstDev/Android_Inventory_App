@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Login screen layout with title, username/password fields, and action buttons. -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,8 +9,7 @@
     android:padding="16dp"
     android:gravity="center">
 
-    
-    
+    <!-- Welcome message. Possibly name of app?-->
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    
+     <!-- Username and Pass-->
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="0dp"
@@ -36,6 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvWelcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
     <EditText
         android:id="@+id/etPassword"
@@ -50,8 +51,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    
-        <Button
+    <!-- Login button -->
+    <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -61,7 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    
+    <!-- Create New User button-->
     <Button
         android:id="@+id/btnCreateAccount"
         style="@style/Widget.MaterialComponents.Button.TextButton"
